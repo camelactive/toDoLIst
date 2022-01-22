@@ -1,0 +1,112 @@
+body {
+    height: 100vh;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.todolist_container {
+    background-color: bisque;
+    width: 80%;
+    height: 80%;
+    border-radius: 10px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todolist_add {
+    margin-top: 10px;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 15px;
+    background-color: rgba(73, 121, 26, 0.8);
+    color: #fff;
+    transition: 0.5s;
+}
+
+.todolist_add:hover {
+    box-shadow: 0px 0px 15px 0px rgb(47, 255, 64);
+    width: 150px;
+    height: 75px;
+    font-size: 26px;
+}
+
+.ListItem {
+    font-size: 24px;
+    background-color: burlywood;
+    border-bottom: 1px solid black;
+    width: 80%;
+    height: 50px;
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.todolist_decline {
+    margin-top: 10px;
+    width: 100px;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 15px;
+    background-color: rgba(131, 11, 11, 0.8);
+    color: #fff;
+    transition: 0.5s;
+}
+
+.btnContainer {
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+}
+
+.new_Item_Input_Item {
+    font-size: 24px;
+    background-color: burlywood;
+    border: 1px solid black;
+    width: 80%;
+    height: 50px;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 15px;
+}
+
+.finish_Btn {
+    background-color: yellowgreen;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    border-radius: 40%;
+}
+
+.fail_Btn {
+    background-color: rgb(192, 21, 21);
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    border-radius: 40%;
+}
+
+.finish {
+    color: green;
+    font-size: 36px;
+    font-family: bold;
+}
+
+.fail {
+    color: rgb(231, 12, 12);
+    font-size: 36px;
+    font-family: bold;
+    text-decoration: line-through;
+}
