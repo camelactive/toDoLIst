@@ -1,5 +1,6 @@
 let todolistAdd = document.querySelector(".todolist_add");
-let todolistContainer = document.querySelector(".todolist_container")
+let todolistContainer = document.querySelector(".todolist_container");
+let memory = [];
 
 function addNewItem() {
     let newItemInput = document.createElement("input");
@@ -21,17 +22,21 @@ function addNewItem() {
     btnContainer.insertAdjacentElement("beforeend", declineBtn);
     declineBtn.classList.add("todolist_decline");
     declineBtn.textContent = "Отменить цель";
+    let newItemInputItem = document.createElement("div");
 
     function startTarget(event) {
         if (event.target == acceptBtn) {
-            let newItemInputItem = document.createElement("div");
+
             todolistContainer.insertAdjacentElement("afterbegin", newItemInputItem);
             newItemInputItem.insertAdjacentText("beforeend", newItemInput.value);
             newItemInputItem.classList.add("new_Item_Input_Item")
             newItemInput.remove();
             acceptBtn.remove();
             declineBtn.remove();
-            console.log(newItemInputItem);
+            memory.push(newItemInput.value);
+            localStorage.setItem("item", memory)
+            console.log(localStorage.getItem("item"));
+
 
             let finishBtn = document.createElement("button");
             finishBtn.classList.add("finish_Btn")
@@ -66,5 +71,29 @@ function addNewItem() {
     }
 
 }
-
+// Секция работы с localStorage
 todolistAdd.addEventListener("click", addNewItem);
+memory = localStorage.getItem("item").split(",");
+
+
+
+function startWindow() {
+
+    for (let i = 0; i < memory.length; i++) {
+        let newItemInputItem = document.createElement("div");
+        newItemInputItem.insertAdjacentText("beforeend", memory[i]);
+        todolistContainer.insertAdjacentElement("afterbegin", newItemInputItem);
+        newItemInputItem.classList.add("new_Item_Input_Item")
+        console.log(newItemInputItem)
+    }
+}
+startWindow();
+let clearList = document.querySelector(".todolist_clear");
+
+function clearListFunc() {
+    localStorage.clear();
+    document.location.reload()
+
+}
+clearList.addEventListener("click", clearListFunc);
+console.log(newItemInputItem)
