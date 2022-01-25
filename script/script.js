@@ -27,7 +27,7 @@ function addNewItem() {
     function startTarget(event) {
         if (event.target == acceptBtn) {
 
-            todolistContainer.insertAdjacentElement("afterbegin", newItemInputItem);
+            todolistContainer.insertAdjacentElement("beforeend", newItemInputItem);
             newItemInputItem.insertAdjacentText("beforeend", newItemInput.value);
             newItemInputItem.classList.add("new_Item_Input_Item")
             newItemInput.remove();
@@ -35,33 +35,6 @@ function addNewItem() {
             declineBtn.remove();
             memory.push(newItemInput.value);
             localStorage.setItem("item", memory)
-            console.log(localStorage.getItem("item"));
-
-
-            let finishBtn = document.createElement("button");
-            finishBtn.classList.add("finish_Btn")
-            let failBtn = document.createElement("button");
-            failBtn.classList.add("fail_Btn")
-            newItemInputItem.insertAdjacentElement("afterbegin", finishBtn);
-            newItemInputItem.insertAdjacentElement("afterbegin", failBtn);
-
-            finishBtn.addEventListener("click", finish);
-            failBtn.addEventListener("click", fail);
-
-            function finish() {
-                newItemInputItem.classList.add("finish");
-                finishBtn.remove();
-                failBtn.remove();
-
-            };
-
-            function fail() {
-                newItemInputItem.classList.add("fail");
-                finishBtn.remove();
-                failBtn.remove();
-            }
-
-
         } else {
             newItemInput.remove();
             acceptBtn.remove();
@@ -82,9 +55,8 @@ function startWindow() {
     for (let i = 0; i < memory.length; i++) {
         let newItemInputItem = document.createElement("div");
         newItemInputItem.insertAdjacentText("beforeend", memory[i]);
-        todolistContainer.insertAdjacentElement("afterbegin", newItemInputItem);
+        todolistContainer.insertAdjacentElement("beforeend", newItemInputItem);
         newItemInputItem.classList.add("new_Item_Input_Item")
-        console.log(newItemInputItem)
     }
 }
 startWindow();
@@ -96,4 +68,3 @@ function clearListFunc() {
 
 }
 clearList.addEventListener("click", clearListFunc);
-console.log(newItemInputItem)
